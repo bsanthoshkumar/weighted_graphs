@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
-const { mst_prims } = require('../src/graph');
+const { mstPrims } = require('../src/mstPrims');
 
-describe('mst_prims', function () {
+describe('mstPrims', function () {
   const pairs = [
     ['a', 'b', 5],
     ['b', 'c', 3],
@@ -25,7 +25,7 @@ describe('mst_prims', function () {
       c: [],
       a: [],
     };
-    assert.deepStrictEqual(mst_prims(pairs, 'f'), expected);
+    assert.deepStrictEqual(mstPrims(pairs, 'f'), expected);
   });
 
   it('should give tree from vertex a', function () {
@@ -40,7 +40,7 @@ describe('mst_prims', function () {
       e: [['f', 2]],
       f: [],
     };
-    assert.deepStrictEqual(mst_prims(pairs, 'a'), expected);
+    assert.deepStrictEqual(mstPrims(pairs, 'a'), expected);
   });
 
   it('should give tree from vertex c', function () {
@@ -55,6 +55,6 @@ describe('mst_prims', function () {
       f: [],
       a: [],
     };
-    assert.deepStrictEqual(mst_prims(pairs, 'c'), expected);
+    assert.deepStrictEqual(mstPrims(pairs, 'c'), expected);
   });
 });

@@ -41,7 +41,7 @@ const findMinWeightedEdge = (visitedVerticesAdjList) => {
   return { nextVertex, minEdge };
 };
 
-const mst_prims = (pairs, source) => {
+const mstPrims = (pairs, source) => {
   const adjacencyList = getAdjacencyList(pairs);
   const totalVertices = Object.keys(adjacencyList);
   let visitedPairs = {};
@@ -59,4 +59,4 @@ const mst_prims = (pairs, source) => {
   return visitedPairs;
 };
 
-module.exports = { mst_prims, getAdjacencyList };
+module.exports = { mstPrims, getAdjacencyList };
