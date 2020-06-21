@@ -41,11 +41,11 @@ const findMinWeightedEdge = (visitedVerticesAdjList) => {
   return { nextVertex, minEdge };
 };
 
-const mstPrims = (pairs, source) => {
+const mstPrims = (pairs) => {
   const adjacencyList = getAdjacencyList(pairs);
   const totalVertices = Object.keys(adjacencyList);
   let visitedPairs = {};
-  visitedPairs[source] = [];
+  visitedPairs[totalVertices[0]] = [];
 
   while (!totalVertices.every((vertex) => Object.keys(visitedPairs).includes(vertex))) {
     const visitedPairsAdjList = findVisitedPairsAdjList(adjacencyList, visitedPairs);

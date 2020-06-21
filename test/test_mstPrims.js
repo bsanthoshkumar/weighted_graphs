@@ -2,18 +2,17 @@ const assert = require('chai').assert;
 const { mstPrims } = require('../src/mstPrims');
 
 describe('mstPrims', function () {
-  const pairs = [
-    ['a', 'b', 5],
-    ['b', 'c', 3],
-    ['a', 'c', 8],
-    ['b', 'd', 1],
-    ['c', 'd', 1],
-    ['d', 'f', 4],
-    ['f', 'e', 2],
-    ['e', 'b', 2],
-  ];
-
   it('should give tree from vertex f', function () {
+    const pairs = [
+      ['f', 'e', 2],
+      ['a', 'b', 5],
+      ['b', 'c', 3],
+      ['a', 'c', 8],
+      ['b', 'd', 1],
+      ['c', 'd', 1],
+      ['d', 'f', 4],
+      ['e', 'b', 2],
+    ];
     const expected = {
       f: [['e', 2]],
       e: [['b', 2]],
@@ -25,10 +24,20 @@ describe('mstPrims', function () {
       c: [],
       a: [],
     };
-    assert.deepStrictEqual(mstPrims(pairs, 'f'), expected);
+    assert.deepStrictEqual(mstPrims(pairs), expected);
   });
 
   it('should give tree from vertex a', function () {
+    const pairs = [
+      ['a', 'b', 5],
+      ['b', 'c', 3],
+      ['a', 'c', 8],
+      ['b', 'd', 1],
+      ['c', 'd', 1],
+      ['d', 'f', 4],
+      ['f', 'e', 2],
+      ['e', 'b', 2],
+    ];
     const expected = {
       a: [['b', 5]],
       b: [
@@ -40,10 +49,20 @@ describe('mstPrims', function () {
       e: [['f', 2]],
       f: [],
     };
-    assert.deepStrictEqual(mstPrims(pairs, 'a'), expected);
+    assert.deepStrictEqual(mstPrims(pairs), expected);
   });
 
   it('should give tree from vertex c', function () {
+    const pairs = [
+      ['c', 'd', 1],
+      ['a', 'b', 5],
+      ['b', 'c', 3],
+      ['a', 'c', 8],
+      ['b', 'd', 1],
+      ['d', 'f', 4],
+      ['f', 'e', 2],
+      ['e', 'b', 2],
+    ];
     const expected = {
       c: [['d', 1]],
       d: [['b', 1]],
@@ -55,6 +74,6 @@ describe('mstPrims', function () {
       f: [],
       a: [],
     };
-    assert.deepStrictEqual(mstPrims(pairs, 'c'), expected);
+    assert.deepStrictEqual(mstPrims(pairs), expected);
   });
 });
